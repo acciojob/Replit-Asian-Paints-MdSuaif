@@ -1,16 +1,91 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #grid-item {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
 
+    <div id="grid-container">
+        <div id="grid-item">1</div>
+        <div id="grid-item">2</div>
+        <div id="grid-item">3</div>
+        <div id="grid-item">4</div>
+        <div id="grid-item">5</div>
+        <div id="grid-item">6</div>
+        <div id="grid-item">7</div>
+        <div id="grid-item">8</div>
+        <div id="grid-item">9</div>
+    </div>
+
+    <input type="number" id="block_id" placeholder="Enter block id">
+
+    <input type="text" id="color_id" placeholder="Enter color ">
+
+    <button id="change_button">Change Color</button>
+
+    <button id="Reset">Reset</button>
+
+
+    <script>
+
+        let block = document.getElementById("block_id")
+
+        let color = document.getElementById("color_id")
+
+        let changebutton = document.getElementById("change_button")
+
+        let resetbutton = document.getElementById("Reset")
+
+        let items = document.querySelectorAll("#grid-item")
+
+
+        changebutton.addEventListener("click",()=>{
+
+            let id = NUmber(block.value);
+
+            let selectedcolor = color.value;
+
+            items.forEach((item)=>{
+                 item.style.backgroundColor = "transparent"
+            })
+
+            if(id >= 1 && id <= 9){
+                items[id - 1].style.backgroundColor = selectedcolor
+            }
+        })
+
+        resetbutton.addEventListener("click",()=>{
+            items.forEach((item)=>{
+                item.style.backgroundColor = "transparent"
+            })
+        })
+
+
+    </script>
+    
 </body>
-
 </html>
